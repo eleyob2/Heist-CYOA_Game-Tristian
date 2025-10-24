@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Heist</title>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>Create Your Own Adventure</h1>
+      <div class="controls">
+        <button id="saveBtn" title="Save game">Save</button>
+        <button id="loadBtn" title="Load game">Load</button>
+        <button id="restartBtn" title="Restart">Restart</button>
+      </div>
+    </header>
+
+    <section id="game" class="game">
+      <aside class="sidebar">
+        <div class="inventory">
+          <h2>Inventory</h2>
+          <ul id="inventoryList"></ul>
+        </div>
+        <div class="status">
+          <h2>Status</h2>
+          <div id="statusText">Stealth: 5 | Notoriety: 0</div>
+        </div>
+      </aside>
+
+      <article class="scene" id="scene">
+      <h2 id="sceneTitle">Loading…</h2>
+      <p id="sceneText" class="scene-text" aria-live="polite">Please wait while the game loads.</p>
+
+      <div id="choices" class="choices" role="list" aria-label="Choices"></div>
+
+      <div id="aiOverlord" class="hidden"></div>
+      </article>
+    </section>
+    <!-- 🕵️ Hidden Team Bio (Easter Egg) -->
+     <div id="teamSecret" class="hidden">
+      <p>👀 You found us! We’re Team CreameWhermst - 2 caffeine-powered debuggers and one clanker.</p>
+      <img src="Me & Tris pic.png" alt="Team photo" style="max-width:150px; display:block; margin-top:10px;"></div>
+    </div>
+    
+    <footer class="footer">
+      <small>Tip: use number keys 1-9 to choose faster.</small>
+    </footer>
+  </main>
+
+  <script src="src/app.js" type="module"></script>
+  <audio id="blip" src="assets/blip.wav" preload="auto"></audio>
+  <audio id="bgmus" src="assets/music.mp3" loop preload="auto"></audio>
+
+</body>
+</html>

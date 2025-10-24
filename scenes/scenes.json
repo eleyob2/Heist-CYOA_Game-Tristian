@@ -1,0 +1,437 @@
+{
+  "start": {
+    "title": "Choose Your Adventure",
+    "text": "Two heists, two worlds. Which will you attempt?",
+    "choices": [
+      {"text": "The Louvre — classic museum heist", "target": "louvre_lobby"},
+      {"text": "Staff Story — warehouse misadventure", "load": "scenes/staff-scenes.json", "target": "staff_start"}
+    ]
+  },
+
+  "louvre_lobby": {
+    "title": "The Louvre — Pyramid Entrance",
+    "text": "Tourists mill beneath the glass pyramid as dawn light spills over Paris. Today the Apollo Gallery is open for a special display of Napoleonic jewels. Opportunity smells like an open window.",
+    "choices": [
+      {"text": "Use the construction lift outside to reach the upper gallery (risky)", "target": "scaffold", "effects": {"stats": {"notoriety": 1}}},
+      {"text": "Blend with the morning crowd and scout the Apollo Gallery", "target": "apolloGallery", "effects": {}},
+      {"text": "Sneak into the service entrance (quiet approach)", "target": "serviceDoor", "effects": {"stats": {"stealth": 1}}}
+    ]
+  },
+
+  "scaffold": {
+    "title": "Basket Lift (Borrowed Cover)",
+    "text": "A monte-meubles is parked near the Seine. Workers nod; the lift offers access to a balcony above the Apollo Gallery.",
+    "choices": [
+      {"text": "Climb the lift and cut through a display case (you have a disc cutter ready)", "target": "apolloBreach", "effects": {"stats": {"notoriety": 3}}},
+      {"text": "Set the lift as a diversion and slip away", "target": "liftDiversion", "effects": {"stats": {"stealth": 1}}},
+      {"text": "Change your mind and return to the pyramid", "target": "lobby"}
+    ]
+  },
+
+  "apolloGallery": {
+    "title": "Apollo Gallery (Crown Jewels Nearby)",
+    "text": "Gleaming diadems and brooches sit under glass. Guards watch, but a maintenance window offers a small gap.",
+    "choices": [
+      {"text": "Sneak past the guard and take a single jewel", "target": "silentEscape", "effects": {"stats": {"stealth": 2}, "add": ["Brooch"]}},
+      {"text": "Create a distraction and pull the whole case", "target": "crowdChaos", "effects": {"stats": {"notoriety": 2}}},
+      {"text": "Search nearby drawers for staff access (discreet)", "target": "findSticker", "effects": {"add": ["Staff Sticker"]}}
+    ]
+  },
+
+  "serviceDoor": {
+    "title": "Service Corridor",
+    "text": "The service entrance smells of coffee and cardboard. Staff move crates; a badge lies on a desk.",
+    "choices": [
+      {"text": "Take the badge and move like staff", "target": "serviceHatch", "effects": {"add": ["Access Badge"]}},
+      {"text": "Hide in the crates and wait for a patrol to pass", "target": "waitPatrol", "effects": {"stats": {"stealth": 1}}},
+      {
+        "lobby": {
+          "title": "The Louvre — Pyramid Entrance",
+          "text": "Tourists mill beneath the glass pyramid as dawn light spills over Paris. Today the Apollo Gallery is open for a special display of Napoleonic jewels. Opportunity smells like an open window.",
+          "choices": [
+            {"text": "Use the construction lift outside to reach the upper gallery (risky)", "target": "scaffold", "effects": {"stats": {"notoriety": 1}}},
+            {"text": "Blend with the morning crowd and scout the Apollo Gallery", "target": "apolloGallery", "effects": {}},
+            {"text": "Sneak into the service entrance (quiet approach)", "target": "serviceDoor", "effects": {"stats": {"stealth": 1}}}
+          ]
+        },
+
+        "scaffold": {
+          "title": "Basket Lift (Borrowed Cover)",
+          "text": "A monte-meubles is parked near the Seine. Workers nod; the lift offers access to a balcony above the Apollo Gallery.",
+          "choices": [
+            {"text": "Climb the lift and cut through a display case (you have a disc cutter ready)", "target": "apolloBreach", "effects": {"stats": {"notoriety": 3}}},
+            {"text": "Set the lift as a diversion and slip away", "target": "liftDiversion", "effects": {"stats": {"stealth": 1}}},
+            {"text": "Change your mind and return to the pyramid", "target": "lobby"}
+          ]
+        },
+
+        "apolloGallery": {
+          "title": "Apollo Gallery (Crown Jewels Nearby)",
+          "text": "Gleaming diadems and brooches sit under glass. Guards watch, but a maintenance window offers a small gap.",
+          "choices": [
+            {"text": "Sneak past the guard and take a single jewel", "target": "silentEscape", "effects": {"stats": {"stealth": 2}, "add": ["Brooch"]}},
+            {"text": "Create a distraction and pull the whole case", "target": "crowdChaos", "effects": {"stats": {"notoriety": 2}}},
+            {"text": "Search nearby drawers for staff access (discreet)", "target": "findSticker", "effects": {"add": ["Staff Sticker"]}}
+          ]
+        },
+
+        "serviceDoor": {
+          "title": "Service Corridor",
+          "text": "The service entrance smells of coffee and cardboard. Staff move crates; a badge lies on a desk.",
+          "choices": [
+            {"text": "Take the badge and move like staff", "target": "serviceHatch", "effects": {"add": ["Access Badge"]}},
+            {"text": "Hide in the crates and wait for a patrol to pass", "target": "waitPatrol", "effects": {"stats": {"stealth": 1}}},
+            {"text": "Search for tools in the storage", "target": "searchCrates"}
+          ]
+        },
+
+        "apolloBreach": {
+          "title": "Apollo Breach",
+          "text": "You cut the case with a disc cutter. Alarms chirp but a brief window opens. Jewels are in hand.",
+          "choices": [
+            {"text": "Grab the diadems and bolt to the roof", "target": "scooterEscape", "effects": {"add": ["Diadems"], "stats": {"notoriety": 4}}},
+            {"text": "Take a single brooch quietly and melt away", "target": "silentEscape", "effects": {"add": ["Brooch"]}}
+          ]
+        },
+
+        "liftDiversion": {
+          "title": "Smoke and Mirrors",
+          "text": "A small smoke diversion draws officers away. It's messy but effective for a moment.",
+          "choices": [
+            {"text": "Run across the roof to the scooters", "target": "scooterEscape", "effects": {"stats": {"notoriety": 2}}},
+            {"text": "Hide the loot and disappear into the crowd", "target": "blendCrowd", "effects": {"stats": {"stealth": 1}}}
+          ]
+        },
+
+        "findSticker": {
+          "title": "Staff Drawer",
+          "text": "You find a coffee-stained sticker and a short access code — maintenance notes that could loop cameras.",
+          "choices": [
+            {"text": "Pocket the sticker", "target": "apolloGallery", "effects": {"add": ["Staff Sticker"]}},
+            {"text": "Use the code to loop cameras", "require": {"inventory": ["Staff Sticker"]}, "target": "loopCameras"}
+          ]
+        },
+
+        "searchCrates": {
+          "title": "Crate Search (Tools)",
+          "text": "Under bubble wrap you find a disc cutter and a dusty jacket — tools of the trade.",
+          "choices": [
+            {"text": "Take the disc cutter", "target": "serviceHatch", "effects": {"add": ["Disc Cutter"]}},
+            {"text": "Don the jacket and try to exit as staff", "target": "blendCrowd", "effects": {"add": ["Worker Jacket"], "stats": {"stealth": 1}}}
+          ]
+        },
+
+        "loopCameras": {
+          "title": "Looped Feeds",
+          "text": "You loop a short camera segment. Monitors replay calm footage; you have seconds to act.",
+          "choices": [
+            {"text": "Step into the display and take a single jewel", "target": "silentEscape", "effects": {"add": ["Brooch"], "stats": {"stealth": 2}}},
+            {"text": "Use the window to extract the entire case", "target": "apolloBreach", "effects": {"stats": {"notoriety": 3}}}
+          ]
+        },
+
+        "waitPatrol": {
+          "title": "Silent Waiting",
+          "text": "You press yourself against a crate until a patrol passes. Timing matters.",
+          "choices": [
+            {"text": "Slip into the gallery while guards are away", "target": "apolloGallery", "effects": {"stats": {"stealth": 1}}},
+            {"text": "Follow the patrol to see their route", "target": "followPatrol"}
+          ]
+        },
+
+        "serviceHatch": {
+          "title": "Hatch Above the Gallery",
+          "text": "A hatch drops you into a storage area above the cases. From here, access is easier but cramped.",
+          "choices": [
+            {"text": "Drop into the display area (requires Disc Cutter)", "require": {"inventory": ["Disc Cutter"]}, "target": "apolloBreach"},
+            {"text": "Search crates further", "target": "searchCrates"}
+          ]
+        },
+
+        "crowdChaos": {
+          "title": "Scene Causes Panic",
+          "text": "A staged commotion sends visitors swarming. Security scrambles; you have a short window.",
+          "choices": [
+            {"text": "Sprint outside to the waiting scooters", "target": "scooterEscape", "effects": {"add": ["Diadems"], "stats": {"notoriety": 4}}},
+            {"text": "Hide the loot and plan a return", "target": "hideLoot", "effects": {"stats": {"stealth": 1}}}
+          ]
+        },
+
+        "silentEscape": {
+          "title": "Quiet Exit",
+          "text": "You pocket a brooch and weave through staff corridors until you're out.",
+          "choices": [
+            {"text": "Exit calmly and lay low", "target": "hideEnd", "effects": {"stats": {"notoriety": -1}}},
+            {"text": "Hop a scooter and push your luck", "target": "scooterEscape"}
+          ]
+        },
+
+        "scooterEscape": {
+          "title": "Two-Wheel Getaway",
+          "text": "Scooters roar away from the museum into the maze of Parisian streets.",
+          "choices": [
+            {"text": "Drop the goods at the safehouse", "target": "safehouse"},
+            {"text": "Keep the jewels and enjoy the fame", "target": "fugitives", "effects": {"stats": {"notoriety": 5}}}
+          ]
+        },
+
+        "blendCrowd": {
+          "title": "Fade into the Visitors",
+          "text": "You move with the crowd as staff secure the area — you are effectively invisible.",
+          "choices": [
+            {"text": "Slip out a side door and leave the city", "target": "hideEnd"},
+            {"text": "Return later to retrieve hidden loot", "target": "planReturn", "effects": {"stats": {"stealth": 1}}}
+          ]
+        },
+
+        "hideLoot": {
+          "title": "Hidden Stash",
+          "text": "You hide the jewels behind a loose panel and disappear. You hope the stash survives until night.",
+          "choices": [
+            {"text": "Return at night to retrieve the stash", "target": "planReturn"},
+            {"text": "Abandon the stash — too hot", "target": "lobby"}
+          ]
+        },
+
+        "followPatrol": {
+          "title": "Trailing the Patrol",
+          "text": "You follow a guard to a back office and spot a discarded badge and a sticky note with codes.",
+          "choices": [
+            {"text": "Steal the badge (gain Access Badge)", "target": "takeBadge", "effects": {"add": ["Access Badge"]}},
+            {"text": "Study the guard's rounds", "target": "waitPatrol"}
+          ]
+        },
+
+        "planReturn": {
+          "title": "Return at Night",
+          "text": "Under darkness you can retrieve the stash or attempt a cleaner theft.",
+          "choices": [
+            {"text": "Retrieve the stash and vanish", "target": "hideEnd", "effects": {"add": ["Diadems"]}},
+            {"text": "Take a single jewel quietly", "target": "silentEscape"}
+          ]
+        },
+
+        "takeBadge": {
+          "title": "Swipe Found",
+          "text": "The badge fits a staff lanyard. It won't fool a close inspection but opens many doors.",
+          "choices": [
+            {"text": "Use the badge to access staff areas", "target": "serviceHatch", "effects": {"add": ["Access Badge"]}},
+            {"text": "Keep the badge and return to the gallery", "target": "apolloGallery"}
+          ]
+        },
+
+        "safehouse": {
+          "title": "Safehouse",
+          "text": "You hand off the jewels at a quiet safehouse. Deals are made; options offered.",
+          "choices": [
+            {"text": "Accept the deal and disappear", "target": "fugitives"},
+            {"text": "Refuse and keep the spoils", "target": "fugitives"}
+          ]
+        },
+
+        "fugitives": {
+          "title": "On the Run",
+          "text": "The heist makes headlines. You're wanted and celebrated in equal measure.",
+          "choices": [
+            {"text": "Play again", "target": "lobby"}
+          ]
+        },
+
+        "hideEnd": {
+          "title": "Vanished",
+          "text": "You melted away. The jewels are hidden or sold; the museum tightens its security.",
+          "choices": [
+            {"text": "Play again", "target": "lobby"}
+          ]
+        },
+
+        "loudEnd": {
+          "title": "Dramatic Exit",
+          "text": "You go loud. Sirens, chase, and a very emotional getaway car. The tabloids will love you.",
+          "choices": [
+            {"text": "Play again", "target": "lobby"}
+          ]
+        },
+
+        "helicopterEnd": {
+          "title": "Helicopter Escape (Very Fancy)",
+          "text": "A helicopter whisks you away into the night. You are now a legend, an enigma, and probably on a few very loud podcasts.",
+          "choices": [
+            {"text": "Play again", "target": "lobby"}
+          ]
+        },
+
+        "followGuard": {
+          "title": "Tail the Guard (Sneaky)",
+          "text": "You follow the guard to a back office. He tosses his badge into the bin and hums. Opportunity abounds.",
+          "choices": [
+            {"text": "Steal the badge (smooth)", "target": "findBadge", "effects": {"add": ["Access Code"]}},
+            {"text": "Return to the corridor like a normal person", "target": "backCorridor"}
+          ]
+        }
+
+      }
+    ]
+  },
+
+  "apolloBreach": {
+    "title": "Apollo Breach",
+    "text": "You cut the case with a disc cutter. Alarms chirp but a brief window opens. Jewels are in hand.",
+    "choices": [
+      {"text": "Grab the diadems and bolt to the roof", "target": "scooterEscape", "effects": {"add": ["Diadems"], "stats": {"notoriety": 4}}},
+      {"text": "Take a single brooch quietly and melt away", "target": "silentEscape", "effects": {"add": ["Brooch"]}}
+    ]
+  },
+
+  "liftDiversion": {
+    "title": "Smoke and Mirrors",
+    "text": "A small smoke diversion draws officers away. It's messy but effective for a moment.",
+    "choices": [
+      {"text": "Run across the roof to the scooters", "target": "scooterEscape", "effects": {"stats": {"notoriety": 2}}},
+      {"text": "Hide the loot and disappear into the crowd", "target": "blendCrowd", "effects": {"stats": {"stealth": 1}}}
+    ]
+  },
+
+  "findSticker": {
+    "title": "Staff Drawer",
+    "text": "You find a coffee-stained sticker and a short access code — maintenance notes that could loop cameras.",
+    "choices": [
+      {"text": "Pocket the sticker", "target": "apolloGallery", "effects": {"add": ["Staff Sticker"]}},
+      {"text": "Use the code to loop cameras", "require": {"inventory": ["Staff Sticker"]}, "target": "loopCameras"}
+    ]
+  },
+
+  "searchCrates": {
+    "title": "Crate Search (Tools)",
+    "text": "Under bubble wrap you find a disc cutter and a dusty jacket — tools of the trade.",
+    "choices": [
+      {"text": "Take the disc cutter", "target": "serviceHatch", "effects": {"add": ["Disc Cutter"]}},
+      {"text": "Don the jacket and try to exit as staff", "target": "blendCrowd", "effects": {"add": ["Worker Jacket"], "stats": {"stealth": 1}}}
+    ]
+  },
+
+  "loopCameras": {
+    "title": "Looped Feeds",
+    "text": "You loop a short camera segment. Monitors replay calm footage; you have seconds to act.",
+    "choices": [
+      {"text": "Step into the display and take a single jewel", "target": "silentEscape", "effects": {"add": ["Brooch"], "stats": {"stealth": 2}}},
+      {"text": "Use the window to extract the entire case", "target": "apolloBreach", "effects": {"stats": {"notoriety": 3}}}
+    ]
+  },
+
+  "waitPatrol": {
+    "title": "Silent Waiting",
+    "text": "You press yourself against a crate until a patrol passes. Timing matters.",
+    "choices": [
+      {"text": "Slip into the gallery while guards are away", "target": "apolloGallery", "effects": {"stats": {"stealth": 1}}},
+      {"text": "Follow the patrol to see their route", "target": "followPatrol"}
+    ]
+  },
+
+  "serviceHatch": {
+    "title": "Hatch Above the Gallery",
+    "text": "A hatch drops you into a storage area above the cases. From here, access is easier but cramped.",
+    "choices": [
+      {"text": "Drop into the display area (requires Disc Cutter)", "require": {"inventory": ["Disc Cutter"]}, "target": "apolloBreach"},
+      {"text": "Search crates further", "target": "searchCrates"}
+    ]
+  },
+
+  "crowdChaos": {
+    "title": "Scene Causes Panic",
+    "text": "A staged commotion sends visitors swarming. Security scrambles; you have a short window.",
+    "choices": [
+      {"text": "Sprint outside to the waiting scooters", "target": "scooterEscape", "effects": {"add": ["Diadems"], "stats": {"notoriety": 4}}},
+      {"text": "Hide the loot and plan a return", "target": "hideLoot", "effects": {"stats": {"stealth": 1}}}
+    ]
+  },
+
+  "silentEscape": {
+    "title": "Quiet Exit",
+    "text": "You pocket a brooch and weave through staff corridors until you're out.",
+    "choices": [
+      {"text": "Exit calmly and lay low", "target": "hideEnd", "effects": {"stats": {"notoriety": -1}}},
+      {"text": "Hop a scooter and push your luck", "target": "scooterEscape"}
+    ]
+  },
+
+  "scooterEscape": {
+    "title": "Two-Wheel Getaway",
+    "text": "Scooters roar away from the museum into the maze of Parisian streets.",
+    "choices": [
+      {"text": "Drop the goods at the safehouse", "target": "safehouse"},
+      {"text": "Keep the jewels and enjoy the fame", "target": "fugitives", "effects": {"stats": {"notoriety": 5}}}
+    ]
+  },
+
+  "blendCrowd": {
+    "title": "Fade into the Visitors",
+    "text": "You move with the crowd as staff secure the area — you are effectively invisible.",
+    "choices": [
+      {"text": "Slip out a side door and leave the city", "target": "hideEnd"},
+      {"text": "Return later to retrieve hidden loot", "target": "planReturn", "effects": {"stats": {"stealth": 1}}}
+    ]
+  },
+
+  "hideLoot": {
+    "title": "Hidden Stash",
+    "text": "You hide the jewels behind a loose panel and disappear. You hope the stash survives until night.",
+    "choices": [
+      {"text": "Return at night to retrieve the stash", "target": "planReturn"},
+      {"text": "Abandon the stash — too hot", "target": "lobby"}
+    ]
+  },
+
+  "followPatrol": {
+    "title": "Trailing the Patrol",
+    "text": "You follow a guard to a back office and spot a discarded badge and a sticky note with codes.",
+    "choices": [
+      {"text": "Steal the badge (gain Access Badge)", "target": "takeBadge", "effects": {"add": ["Access Badge"]}},
+      {"text": "Study the guard's rounds", "target": "waitPatrol"}
+    ]
+  },
+
+  "planReturn": {
+    "title": "Return at Night",
+    "text": "Under darkness you can retrieve the stash or attempt a cleaner theft.",
+    "choices": [
+      {"text": "Retrieve the stash and vanish", "target": "hideEnd", "effects": {"add": ["Diadems"]}},
+      {"text": "Take a single jewel quietly", "target": "silentEscape"}
+    ]
+  },
+
+  "takeBadge": {
+    "title": "Swipe Found",
+    "text": "The badge fits a staff lanyard. It won't fool a close inspection but opens many doors.",
+    "choices": [
+      {"text": "Use the badge to access staff areas", "target": "serviceHatch", "effects": {"add": ["Access Badge"]}},
+      {"text": "Keep the badge and return to the gallery", "target": "apolloGallery"}
+    ]
+  },
+
+  "safehouse": {
+    "title": "Safehouse",
+    "text": "You hand off the jewels at a quiet safehouse. Deals are made; options offered.",
+    "choices": [
+      {"text": "Accept the deal and disappear", "target": "fugitives"},
+      {"text": "Refuse and keep the spoils", "target": "fugitives"}
+    ]
+  },
+
+  "fugitives": {
+    "title": "On the Run",
+    "text": "The heist makes headlines. You're wanted and celebrated in equal measure.",
+    "choices": [
+      {"text": "Play again", "target": "lobby"}
+    ]
+  },
+
+  "hideEnd": {
+    "title": "Vanished",
+    "text": "You melted away. The jewels are hidden or sold; the museum tightens its security.",
+    "choices": [
+      {"text": "Play again", "target": "lobby"}
+    ]
+  }
+
+}

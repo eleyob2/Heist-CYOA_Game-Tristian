@@ -1,0 +1,12 @@
+{
+  "name":"heist-adventure",
+  "version":"1.0.0",
+  "description":"A small Create-Your-Own-Adventure heist game in HTML/CSS/JS.",
+  "main":"index.html",
+  "scripts":{
+    "start":"npx http-server -c-1 . -p 8080",
+    "serve":"npx http-server -c-1 . -p 8080"
+  },
+  "author":"",
+  "license":"MIT"
+}

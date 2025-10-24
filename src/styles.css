@@ -1,0 +1,108 @@
+/* Heist game styles */
+:root{
+  --bg:#071021; /* darker page background */
+  --panel:#071827; /* main panel */
+  --panel-2:#0b2233; /* sidebar */
+  --accent:#f5c542; /* accent (brighter) */
+  --muted:#9fb0c8; /* lighter muted */
+  --card:#091523;
+  --text:#eaf6ff; /* brighter main text for contrast */
+}
+*{box-sizing:border-box}
+html,body,#game{height:100%}
+.root-font{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif}
+body{margin:0;font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),#041022);color:var(--text);}
+.app{font-size:16px}
+.app{max-width:1000px;margin:24px auto;padding:18px}
+.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.topbar h1{font-size:1.25rem;margin:0}
+.controls button{margin-left:8px;padding:6px 10px;border-radius:6px;border:0;background:#07203a;color:var(--accent);cursor:pointer}
+.controls button:hover{filter:brightness(1.1)}
+.controls button:focus{outline:3px solid rgba(234,179,8,0.18)}
+.game{display:flex;gap:12px}
+.sidebar{width:280px;background:linear-gradient(180deg,var(--panel-2),#041826);padding:14px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)}
+.scene{flex:1;background:linear-gradient(180deg,var(--panel),#041226);padding:20px;border-radius:10px;border:1px solid rgba(255,255,255,0.04)}
+.scene h2{margin-top:0;font-size:1.4rem;color:var(--accent)}
+.scene-text{min-height:140px;line-height:1.6;font-size:1.05rem;color:var(--text)}
+.scene{animation:fadeIn 220ms ease both}
+.choices{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.choice{background:linear-gradient(180deg,#b4bdc0,#ffffff);padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:transform 120ms ease, box-shadow 120ms ease}
+.choice:hover{background:linear-gradient(180deg,#60d39d,#053244);transform:translateY(-3px);box-shadow:0 8px 26px rgba(3,18,30,0.5)}
+.choice .key{opacity:0.95;font-size:0.95rem;color:var(--accent);font-weight:600}
+.choice:focus{outline:3px solid rgba(10,120,100,0.12)}
+.choice:focus-visible{outline:3px solid rgba(234,179,8,0.25)}
+.inventory h2,.status h2{margin:0 0 8px 0;font-size:0.95rem}
+.inventory ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+.inventory li{background:#031a28;padding:8px;border-radius:6px;border:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+.footer{margin-top:12px;text-align:center;color:var(--muted)}
+@media(max-width:880px){
+  .game{flex-direction:column}
+  .sidebar{width:100%}
+}
+
+#timeBomb {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  font-size: 1.5rem;
+  background: red;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  animation: pulse 1s infinite;
+}
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+body.explode {
+  background-color: #000;
+  animation: flash 0.2s alternate 10;
+}
+@keyframes flash {
+  from { background-color: #000; }
+  to { background-color: #f00; }
+}
+/* ===========================
+   🤖 AI Overlord Styling
+=========================== */
+#aiOverlord {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  color: #0f0;
+  font-family: "Courier New", monospace;
+  border: 3px solid #0f0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 15px #0f0;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  text-align: center;
+}
+#aiOverlord.active {
+  opacity: 1;
+}
+
+/* ===========================
+   🕵️ Hidden Team Bio Styling
+=========================== */
+.hidden { display: none; }
+
+#teamSecret {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(255,255,255,0.9);
+  color: #000;
+  border-radius: 10px;
+  padding: 10px 15px;
+  box-shadow: 0 0 10px #000;
+  font-size: 0.9rem;
+  max-width: 250px;
+}
+

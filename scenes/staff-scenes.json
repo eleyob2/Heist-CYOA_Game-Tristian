@@ -1,0 +1,89 @@
+{
+  "staff_start": {
+    "title": "Amazon: Start",
+    "text": "You are wandering around in the Amazon lost and confused, what do you do?",
+    "choices": [
+      {"text": "Raid their warehouse to find my amazon package", "target": "staff_Amazon_route"},
+      {"text": "Find a source of water so I don't die", "target": "staff_Reasonable_route"},
+      {"text": "Climb the tallest tree I can find to establish dominance", "target": "staff_Bold_route"}
+    ]
+  },
+
+  "staff_Amazon_route": {
+    "title": "Amazon Route",
+    "text": "Ok... I meant the rainforest, but sure. You burst into a random Amazon warehouse to get your package, where do you look?",
+    "choices": [
+      {"text": "Walk around the perimeter to find a help desk or some employees.", "target": "staff_Customerservice_path"},
+      {"text": "Eeny, Meeny, Miney, Mo a random direction and go", "target": "staff_whynot_path"}
+    ]
+  },
+
+  "staff_Reasonable_route": {
+    "title": "Reasonable Route",
+    "text": "Alright, makes sense. You wander around for a while and find a stream, how do you approach?",
+    "choices": [
+      {"text": "Pshh, it's just water. I'm gonna go drink it", "target": "staff_jaguar_path"},
+      {"text": "You wording it like that makes me nervous... i'll approach cautiously", "target": "staff_selfpreservation_path"}
+    ]
+  },
+
+  "staff_Bold_route": {
+    "title": "Bold Route",
+    "text": "*Sigh... You tap into your animal instincts and approach the tallest tree you can see then climb it. What now genius?",
+    "choices": [
+      {"text": "scream at the top of my lungs and form the glorious communist utopia i've always dreamed of.", "target": "staff_dream_ending"},
+      {"text": "get stuck on a tree branch (i forgot i'm scared of heights)", "target": "staff_wellthen_path"}
+    ]
+  },
+
+  "staff_Customerservice_path": {
+    "title": "Customer Service Path",
+    "text": "You walk around and eventually find some workers, but last i checked you weren't authorized to be here. How do you approach them?",
+    "choices": [
+      {"text": "Act confident and demand my package", "target": "staff_bluff_ending"},
+      {"text": "Grab a cardboardbox and solid snake my way over", "target": "staff_STEALTH100_ending"}
+    ]
+  },
+
+  "staff_whynot_path": {
+    "title": "Wander",
+    "text": "You wander around aimlessly. It's a pretty big warehouse... Feels like you've been walking for days at this point and you can't seem to find your way back out again. Almost as though the warehouse is infinite? SCP-3008 ENDING",
+    "choices": []
+  },
+
+  "staff_jaguar_path": {
+    "title": "Jaguar",
+    "text": "you step through the brush and... are brutally mauled by a jaguar. You're in the middle of a rainforest, you didn't figure there'd be anything else here that needs water? MAULED ENDING",
+    "choices": []
+  },
+
+  "staff_selfpreservation_path": {
+    "title": "Self Preservation",
+    "text": "you carefully approach the stream. You are so busy looking around for threats that you don't notice a rock, so you trip and fall in the stream. you haver a panic attack in the knee height water and drown. ACCIDENT ENDING",
+    "choices": []
+  },
+
+  "staff_dream_ending": {
+    "title": "Dream Ending",
+    "text": "The local wildlife joins your cause! You've successfully established a communist animal utopia in the Amazon. Now to get rid of those educated toucans... DICTATORSHIP ENDING",
+    "choices": []
+  },
+
+  "staff_wellthen_path": {
+    "title": "Well Then",
+    "text": "umm... You're stuck and starve?? FEAR ENDING",
+    "choices": []
+  },
+
+  "staff_bluff_ending": {
+    "title": "Bluff Ending",
+    "text": "You announce that you're here for your package, you get flashed with a light by some people in suits and end up outside with your package. But no idea how you got there.",
+    "choices": []
+  },
+
+  "staff_STEALTH100_ending": {
+    "title": "STEALTH 100",
+    "text": "They break an emergency glass case and grab guns to shoot the box dozens of times on sight... Apparently some guy named David has been doing some very illegal things with that strategy.",
+    "choices": []
+  }
+}
